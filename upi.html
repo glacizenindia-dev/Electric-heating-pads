@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID_HERE');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Payment - Elvique™</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 15px;
+}
+        .container {
+            max-width: 460px;
+            width: 100%;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 35px 25px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
+
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .secure-icon {
+            font-size: 16px;
+            animation: lock 2s ease-in-out infinite;
+        }
+
+        @keyframes lock {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 15px;
+            opacity: 0.95;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CONTENT */
+        .content {
+            padding: 35px 25px 40px;
+        }
+
+        /* MASSIVE PRICE DISPLAY */
+        .price-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border: 3px solid #667eea;
+            border-radius: 24px;
+            padding: 35px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-box::before {
+            content: '₹';
+            position: absolute;
+            font-size: 250px;
+            font-weight: 900;
+            color: rgba(102, 126, 234, 0.05);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .price-label {
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-amount {
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -3px;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ORDER INFO */
+        .order-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border: 2px solid #e9ecef;
+        }
+
+        .order-info-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .order-info-label {
+            font-size: 11px;
+            color: #6c757d;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+        }
+
+        .order-info-value {
+            font-size: 15px;
+            color: #212529;
+            font-weight: 800;
+        }
+
+        .divider {
+            width: 2px;
+            height: 35px;
+            background: linear-gradient(to bottom, transparent, #dee2e6, transparent);
+        }
+
+        /* PAYMENT SECTION */
+        .payment-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .payment-title::before,
+        .payment-title::after {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #667eea);
+            border-radius: 10px;
+        }
+
+        .payment-title::after {
+            background: linear-gradient(90deg, #667eea, transparent);
+        }
+
+        .upi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .upi-btn {
+            background: white;
+            border: 3px solid #e9ecef;
+            padding: 28px 15px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upi-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .upi-btn:hover::before {
+            left: 100%;
+        }
+
+        .upi-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.25);
+        }
+
+        .upi-btn:active {
+            transform: translateY(-2px) scale(0.97);
+        }
+
+.upi-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: white;
+}
+
+.upi-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+        .upi-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: #212529;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* OTHER UPI BUTTON */
+        .other-upi-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 17px;
+            font-weight: 800;
+            cursor: pointer;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .other-upi-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .other-upi-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .other-upi-btn:hover {
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .other-upi-btn:active {
+            transform: translateY(0);
+        }
+
+        /* TRUST SECTION */
+        .trust-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid #e9ecef;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 6px 18px rgba(76, 175, 80, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .trust-badge:nth-child(2) .trust-icon {
+            animation-delay: 0.2s;
+            background: linear-gradient(135deg, #2196F3 0%, #42A5F5 100%);
+            box-shadow: 0 6px 18px rgba(33, 150, 243, 0.3);
+        }
+
+        .trust-badge:nth-child(3) .trust-icon {
+            animation-delay: 0.4s;
+            background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+            box-shadow: 0 6px 18px rgba(255, 152, 0, 0.3);
+        }
+
+        .trust-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: #495057;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .support-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .support-link:hover {
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+.upi-logo-badge {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.upi-logo-badge img {
+    height: 28px;
+    width: auto;
+}
+
+
+
+        /* PROCESSING OVERLAY */
+        .processing {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .processing.show {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+.processing-content {
+    background: white;
+    padding: 48px 56px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+}
+
+.processing-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+        .processing-content {
+            background: white;
+            padding: 45px 50px;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid #f0f2ff;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .processing-text {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .processing-subtext {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                border-radius: 24px;
+            }
+
+            .content {
+                padding: 30px 20px 35px;
+            }
+
+            .price-amount {
+                font-size: 56px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .upi-btn {
+                padding: 24px 12px;
+            }
+
+            .processing-content {
+                padding: 35px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="header">
+    <div class="secure-badge">
+        <span class="secure-icon">🔒</span>
+        Secure Payment
+    </div>
+    <h1>Secured Checkout</h1>
+    <p class="subtitle">Choose your UPI app to pay</p>
+    
+    <!-- UPI Logo -->
+    <div class="upi-logo-badge">
+        <img src="upi-logo.png" alt="UPI">
+    </div>
+</div>
+
+        <div class="content">
+            <!-- PRICE DISPLAY -->
+            <div class="price-box">
+                <div class="price-label">Total Amount</div>
+                <div class="price-amount" id="priceDisplay">₹899</div>
+            </div>
+
+            <!-- ORDER INFO -->
+            <div class="order-info">
+                <div class="order-info-item">
+                    <div class="order-info-label">Order ID</div>
+                    <div class="order-info-value" id="orderIdDisplay">-</div>
+                </div>
+                <div class="divider"></div>
+                <div class="order-info-item">
+                    <div class="order-info-label">Product</div>
+                    <div class="order-info-value" id="productDisplay">-</div>
+                </div>
+            </div>
+
+            <!-- PAYMENT BUTTONS -->
+            <div class="payment-title">Select Payment App</div>
+            
+     <div class="upi-grid">
+    <!-- Google Pay -->
+    <button class="upi-btn" onclick="payWithApp('gpay')">
+        <div class="upi-icon">
+            <img src="gpay.png" alt="Google Pay">
+        </div>
+        <div class="upi-name">Google Pay</div>
+    </button>
+
+    <!-- PhonePe -->
+    <button class="upi-btn" onclick="payWithApp('phonepe')">
+        <div class="upi-icon">
+            <img src="phonepe.png" alt="PhonePe">
+        </div>
+        <div class="upi-name">PhonePe</div>
+    </button>
+
+    <!-- Paytm -->
+    <button class="upi-btn" onclick="payWithApp('paytm')">
+        <div class="upi-icon">
+            <img src="paytm.png" alt="Paytm">
+        </div>
+        <div class="upi-name">Paytm</div>
+    </button>
+
+  <!-- Navi -->
+    <button class="upi-btn" onclick="payWithApp('navi')">
+        <div class="upi-icon">
+            <img src="navi.png" alt="Navi">
+        </div>
+        <div class="upi-name">Navi</div>
+    </button>
+
+
+  
+</div>
+
+            <!-- Other UPI Apps -->
+            <button class="other-upi-btn" onclick="payWithUPI()">
+                Pay with Other UPI Apps
+            </button>
+
+            <!-- TRUST BADGES -->
+            <div class="trust-section">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <div class="trust-icon">✓</div>
+                        <div class="trust-text">100% Secure</div>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-icon">🔒</div>
+                        <div class="trust-text">Encrypted</div>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="trust-icon">⚡</div>
+                        <div class="trust-text">Instant</div>
+                    </div>
+                </div>
+            </div>
+
+   <!-- FOOTER -->
+<div class="footer">
+    <p class="footer-text">🛡️ Safe and secure payment powered by UPI</p>
+    <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 10px;">
+        <a href="mailto: elviqueofficial@gmail.com" class="support-link">Need Help?</a>
+        <span style="color: #dee2e6;">|</span>
+        <a href="refund.html" class="support-link">Refund Policy</a>
+    </div>
+    <p style="font-size: 11px; color: #adb5bd; margin-top: 10px;">By completing payment, you agree to our refund policy</p>
+</div>
+
+<!-- Processing Overlay -->
+<div class="processing" id="processingOverlay">
+    <div class="processing-content">
+        <div class="spinner"></div>
+        <div class="processing-text">Opening Payment App...</div>
+        <div class="processing-subtext">Please wait</div>
+    </div>
+</div>
+
+<!-- Payment Completed Confirmation -->
+<div class="processing" id="paymentConfirmOverlay" style="display: none;">
+    <div class="processing-content" style="max-width: 400px;">
+        <div style="font-size: 60px; margin-bottom: 20px;">💳</div>
+        <h3 style="font-size: 22px; margin-bottom: 15px; color: #1a1a1a;">Did you complete the payment?</h3>
+        <p style="font-size: 14px; color: #6c757d; margin-bottom: 30px;">Please confirm only if you have successfully paid ₹<span id="confirmAmount">899</span></p>
+        
+        <button onclick="confirmPayment()" style="width: 100%; background: linear-gradient(135deg, #4CAF50, #66BB6A); color: white; border: none; padding: 16px; font-size: 16px; font-weight: 700; border-radius: 12px; cursor: pointer; margin-bottom: 12px;">
+            ✓ Yes, I Paid
+        </button>
+        
+        <button onclick="cancelPayment()" style="width: 100%; background: #f8f9fa; color: #6c757d; border: 2px solid #e9ecef; padding: 16px; font-size: 16px; font-weight: 700; border-radius: 12px; cursor: pointer;">
+            ✗ No, Go Back
+        </button>
+    </div>
+</div>
+
+    <script>
+        // ========================================
+        // CONFIGURATION - CHANGE YOUR UPI ID HERE
+        // ========================================
+        const UPI_CONFIG = {
+         upiId: '9836552074-2@ibl',              // ⚠️ REPLACE WITH YOUR UPI ID
+            businessName: 'Elvique',
+            merchantCode: '',                      // Optional: Your merchant code
+        };
+
+        // Get data from URL (passed from checkout form)
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderAmount = urlParams.get('price') || '899';
+        const orderColor = urlParams.get('color') || '';
+        const orderVariant = urlParams.get('variant') || '';
+
+        // Generate Order ID
+        const orderId = 'ELV' + Date.now();
+
+        // Update Display
+        document.getElementById('priceDisplay').textContent = '₹' + orderAmount;
+        document.getElementById('orderIdDisplay').textContent = orderId.slice(-8);
+        
+        if (orderColor && orderVariant) {
+            document.getElementById('productDisplay').textContent = orderColor.slice(0, 10);
+        } else {
+            document.getElementById('productDisplay').textContent = 'Elvique™';
+        }
+
+        // ========================================
+        // UPI PAYMENT FUNCTIONS
+        // ========================================
+
+        function buildUPILink() {
+            let upiUrl = 'upi://pay?';
+            upiUrl += `pa=${encodeURIComponent(UPI_CONFIG.upiId)}`;
+            upiUrl += `&pn=${encodeURIComponent(UPI_CONFIG.businessName)}`;
+            upiUrl += `&am=${orderAmount}`;
+            upiUrl += `&cu=INR`;
+            upiUrl += `&tn=${encodeURIComponent('Order ' + orderId)}`;
+            
+            if (UPI_CONFIG.merchantCode) {
+                upiUrl += `&mc=${UPI_CONFIG.merchantCode}`;
+            }
+            
+            return upiUrl;
+        }
+
+        function showProcessing() {
+            document.getElementById('processingOverlay').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('processingOverlay').classList.remove('show');
+            }, 2000);
+        }
+
+        function payWithApp(appName) {
+    showProcessing();
+    
+    // Track purchase
+    fbq('track', 'InitiateCheckout', {
+        value: orderAmount,
+        currency: 'INR',
+        content_name: appName
+    });
+
+    const baseUPI = buildUPILink();
+
+    const appLinks = {
+        'gpay': 'tez://upi/pay?' + baseUPI.replace('upi://pay?', ''),
+        'phonepe': 'phonepe://pay?' + baseUPI.replace('upi://pay?', ''),
+        'paytm': 'paytmmp://pay?' + baseUPI.replace('upi://pay?', ''),
+        'amazonpay': 'amazonpay://pay?' + baseUPI.replace('upi://pay?', ''),
+        'whatsapp': 'whatsapp://pay?' + baseUPI.replace('upi://pay?', ''),
+        'cred': 'credpay://pay?' + baseUPI.replace('upi://pay?', ''),
+        'navi': 'navi://upi/pay?' + baseUPI.replace('upi://pay?', ''),
+          'bhim': baseUPI  // ✅ FIXED - Use standard UPI link for BHIM
+        
+    };
+
+    if (appLinks[appName]) {
+        window.location.href = appLinks[appName];
+        
+        setTimeout(() => {
+            window.location.href = baseUPI;
+        }, 1500);
+        
+        // NEW: Show confirmation dialog after 5 seconds
+        setTimeout(() => {
+            document.getElementById('processingOverlay').classList.remove('show');
+            document.getElementById('paymentConfirmOverlay').style.display = 'flex';
+            document.getElementById('confirmAmount').textContent = orderAmount;
+        }, 5000);
+    } else {
+        window.location.href = baseUPI;
+        
+        setTimeout(() => {
+            document.getElementById('processingOverlay').classList.remove('show');
+            document.getElementById('paymentConfirmOverlay').style.display = 'flex';
+            document.getElementById('confirmAmount').textContent = orderAmount;
+        }, 5000);
+    }
+}
+
+// NEW: Confirmation functions
+function confirmPayment() {
+    // User confirmed they paid
+    fbq('track', 'Purchase', {
+        value: orderAmount,
+        currency: 'INR'
+    });
+    
+    window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
+}
+
+function cancelPayment() {
+    // User didn't pay - close overlay
+    document.getElementById('paymentConfirmOverlay').style.display = 'none';
+}
+    </script>
+</body>
+</html>

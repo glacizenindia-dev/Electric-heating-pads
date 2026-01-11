@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1307286391153633');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Order - Elvique™</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 32px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 6s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
+
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 32px;
+        }
+
+        .order-summary {
+            background: #f8f9fc;
+            border: 2px solid #e8ebf5;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .order-summary-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-size: 15px;
+            border-bottom: 1px solid #e8ebf5;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .order-item span {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .order-item strong {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .upi-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+            letter-spacing: 0.2px;
+        }
+
+        .required {
+            color: #764ba2;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e8ebf5;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+            color: #1a1a1a;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #f8f9fc;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #adb5bd;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(102, 126, 234, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #764ba2;
+        }
+
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-overlay.show {
+            display: flex;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 48px 56px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .spinner {
+            width: 56px;
+            height: 56px;
+            border: 4px solid #e8ebf5;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-content h3 {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .loading-content p {
+            color: #6c757d;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .error-message {
+            background: #fff5f5;
+            color: #c92a2a;
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            display: none;
+            border: 1px solid #ffc9c9;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+
+            .header {
+                padding: 32px 24px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 24px;
+            }
+
+            .loading-content {
+                padding: 40px 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="secure-badge"> Secure Checkout</div>
+            <h1>Complete Your Order</h1>
+            <p class="subtitle">Fill the details below</p>
+        </div>
+
+        <div class="content">
+            <div class="order-summary">
+                <div class="order-summary-title">Your Order</div>
+                <div class="order-item">
+                    <span>Color:</span>
+                    <strong id="displayColor">-</strong>
+                </div>
+                <div class="order-item">
+                    <span>Variant:</span>
+                    <strong id="displayVariant">-</strong>
+                </div>
+                <div class="order-item">
+                    <span>Price:</span>
+                    <strong id="displayPrice">-</strong>
+                </div>
+            </div>
+
+            <div class="upi-note">
+                 Secure UPI Payment
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <form id="orderForm">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="4daca27b-3477-4027-8c2b-68eff245253d">
+                
+                <!-- Custom subject line -->
+                <input type="hidden" name="subject" value="New UPI Order - Elvique™">
+                
+                <!-- Order details -->
+                <input type="hidden" id="selectedColor" name="Selected Color" value="">
+                <input type="hidden" id="selectedVariant" name="Selected Variant" value="">
+                <input type="hidden" id="selectedPrice" name="Price" value="">
+                <input type="hidden" name="Payment Method" value="UPI Payment">
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="mobile" name="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Complete Address <span class="required">*</span></label>
+                    <textarea id="address" name="address" required placeholder="House No., Street, Area, City, State"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pincode">Pincode (Optional)</label>
+                    <input type="text" id="pincode" name="pincode" placeholder="6-digit pincode" maxlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="landmark">Landmark (Optional)</label>
+                    <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span></span>
+                    <span>Proceed to Payment</span>
+                </button>
+            </form>
+
+            <a href="index.html" class="back-link"> Back to Product</a>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Processing Order...</h3>
+            <p>Redirecting to payment</p>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        const color = urlParams.get('color') || 'Not selected';
+        const variant = urlParams.get('variant') || 'Not selected';
+        const price = urlParams.get('price') || 'Not specified';
+        
+        // Fill hidden fields
+        document.getElementById('selectedColor').value = color;
+        document.getElementById('selectedVariant').value = variant;
+        document.getElementById('selectedPrice').value = price;
+        
+        // Display in summary
+        document.getElementById('displayColor').textContent = color;
+        document.getElementById('displayVariant').textContent = variant;
+        document.getElementById('displayPrice').innerHTML = price !== 'Not specified' ? '&#8377;' + price : price;
+        
+        // Validate mobile
+        document.getElementById('mobile').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        // Validate pincode
+        document.getElementById('pincode').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+        
+        // Handle form submission - SEND EMAIL FIRST, THEN REDIRECT TO UPI
+        const form = document.getElementById('orderForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Track form submission
+            fbq('track', 'InitiateCheckout');
+            
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span></span><span>Processing...</span>';
+            errorMessage.style.display = 'none';
+            loadingOverlay.classList.add('show');
+            
+            try {
+                const formData = new FormData(form);
+                
+                // SEND EMAIL TO YOU via Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Email sent successfully! Now redirect to UPI payment
+                    fbq('track', 'Lead');
+                    
+                    // Clean price (remove  symbol)
+                    const priceValue = price.replace('', '').replace(',', '').trim();
+                    
+                    // Small delay for better UX
+                    setTimeout(function() {
+                        // Redirect to UPI page with order details
+                        window.location.href = `upi.html?price=${priceValue}&color=${encodeURIComponent(color)}&variant=${encodeURIComponent(variant)}`;
+                    }, 1500);
+                    
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            } catch (error) {
+                // Show error message
+                loadingOverlay.classList.remove('show');
+                errorMessage.textContent = 'Failed to process order. Please try again.';
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span></span><span>Proceed to Payment</span>';
+                console.error('Error:', error);
+            }
+        });
+    </script>
+    
+    <script>
+        fbq('track', 'AddToCart');
+    </script>
+    
+</body>
+</html>
