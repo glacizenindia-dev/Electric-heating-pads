@@ -365,28 +365,28 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
 
         <a href="index.html" class="home-link">← Back to Home</a>
     </div>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
 
- <script>
-    // Get order details from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const orderId = urlParams.get('order') || 'ELV' + Date.now();
-    const amount = parseFloat(urlParams.get('amount') || '899');
-    const product = urlParams.get('product') || 'Elvique™';
+  const orderId = urlParams.get('order') || 'ELV' + Date.now();
+  const amount = Number(urlParams.get('amount')) || 899;
+  const product = urlParams.get('product') || 'Elvique™';
 
-    // Display details
-    document.getElementById('orderId').textContent = '#' + orderId.slice(-8);
-    document.getElementById('amount').textContent = '₹' + amount;
-    document.getElementById('product').textContent = product;
+  document.getElementById('orderId').textContent = '#' + orderId.slice(-8);
+  document.getElementById('amount').textContent = '₹' + amount;
+  document.getElementById('product').textContent = product;
 
-    // Track purchase conversion with all required parameters
+  // Delay Purchase event slightly (VERY IMPORTANT)
+  setTimeout(() => {
     fbq('track', 'Purchase', {
-        value: amount,
-        currency: 'INR',
-        content_name: product,
-        content_type: 'product',
-        content_ids: [orderId],
-        num_items: 1
+      value: amount,
+      currency: 'INR',
+      content_name: product,
+      content_type: 'product',
+      eventID: orderId
     });
+  }, 1200);
 </script>
+
 </body>
 </html>
