@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing...</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '1307286391153633');
+    // NO PageView - ONLY Purchase on this page
+    </script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        .loader {
+            text-align: center;
+            color: white;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <h2>Processing your order...</h2>
+    </div>
+
+    <script>
+        // Get order details from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order');
+        const amount = urlParams.get('amount');
+        const product = urlParams.get('product');
+
+        console.log('🔥 HIDDEN PAGE - FIRING PURCHASE EVENT!');
+        
+        // Fire Purchase Event - Multiple methods for guarantee
+        fbq('trackSingle', '1307286391153633', 'Purchase', {
+            value: parseFloat(amount),
+            currency: 'INR',
+            content_name: product,
+            content_type: 'product',
+            content_ids: [orderId],
+            num_items: 1
+        });
+        
+        fbq('track', 'Purchase', {
+            value: parseFloat(amount),
+            currency: 'INR',
+            content_name: product,
+            content_type: 'product',
+            content_ids: [orderId],
+            num_items: 1
+        });
+        
+        // Direct pixel call (backup)
+        const img = new Image();
+        img.src = `https://www.facebook.com/tr?id=1307286391153633&ev=Purchase&cd[value]=${amount}&cd[currency]=INR&cd[content_name]=${product}&noscript=1`;
+        
+        console.log('✅ Purchase events fired!');
+        console.log('Order:', orderId, 'Amount:', amount);
+        
+        // Wait 2 seconds for events to send, then redirect
+        setTimeout(() => {
+            window.location.href = `order-confirmed.html?order=${orderId}&amount=${amount}&product=${product}`;
+        }, 2000);
+    </script>
+</body>
+</html>
