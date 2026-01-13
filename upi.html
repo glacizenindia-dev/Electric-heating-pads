@@ -849,15 +849,15 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
 function confirmPayment() {
     console.log('🔥 Firing Purchase Event!');
     
-    // Fire CLEAN Purchase event with only required parameters
+    // Fire CLEAN Purchase with only value and currency
     fbq('track', 'Purchase', {
         value: parseFloat(orderAmount),
         currency: 'INR'
     });
     
-    console.log('✅ Purchase event fired');
+    console.log('✅ Purchase fired');
     
-    // Direct redirect - NO waiting, NO processing page
+    // Immediate redirect - NO delay
     window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
 }
 
