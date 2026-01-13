@@ -11,8 +11,9 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1307286391153633');
-fbq('track', 'PageView');
+fbq('trackSingle', '1307286391153633', 'PageView');
 </script>
 <noscript>
 <img height="1" width="1" style="display:none"
@@ -733,9 +734,9 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
         </button>
     </div>
 </div>
-<script>
+<script>
     // ========================================
-    // CONFIGURATION - CHANGE YOUR UPI ID HERE
+    // CONFIGURATION
     // ========================================
     const UPI_CONFIG = {
         upiId: '9836552074-2@ibl',
@@ -764,7 +765,7 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
     }
 
     // ========================================
-    // UPI PAYMENT FUNCTIONS
+    // UPI FUNCTIONS
     // ========================================
 
     function buildUPILink() {
@@ -804,8 +805,8 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
     function payWithApp(appName) {
         showProcessing();
         
-        // Track checkout initiation
-        fbq('track', 'InitiateCheckout', {
+        // Track InitiateCheckout when they click payment app
+        fbq('trackSingle', '1307286391153633', 'InitiateCheckout', {
             value: parseFloat(orderAmount),
             currency: 'INR',
             content_name: appName
@@ -845,31 +846,64 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
         }
     }
 
-  // 🔥 PURCHASE EVENT FIRES HERE WHEN USER CLICKS "YES I PAID"
-function confirmPayment() {
-    console.log('🔥 Firing Purchase Event with trackSingle!');
-    
-    // Use trackSingle to bypass Facebook auto-tracking
-    fbq('trackSingle', '1307286391153633', 'Purchase', {
-        value: parseFloat(orderAmount),
-        currency: 'INR',
-        content_name: 'Elvique™',
-        content_type: 'product',
-        content_ids: [orderId],
-        num_items: 1
-    });
-    
-    console.log('✅ Purchase trackSingle fired with amount:', orderAmount);
-    
-    // Wait 2 seconds before redirecting to ensure event is sent
-    setTimeout(() => {
-        window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
-    }, 2000);
-}
+    // 🔥🔥🔥 NUCLEAR PURCHASE EVENT - MULTIPLE METHODS 🔥🔥🔥
+    function confirmPayment() {
+        console.log('🔥 FIRING PURCHASE EVENT - MULTIPLE METHODS!');
+        
+        const purchaseData = {
+            value: parseFloat(orderAmount),
+            currency: 'INR',
+            content_name: 'Elvique™',
+            content_type: 'product',
+            content_ids: [orderId],
+            num_items: 1
+        };
+        
+        // Method 1: trackSingle
+        try {
+            fbq('trackSingle', '1307286391153633', 'Purchase', purchaseData);
+            console.log('✅ Method 1: trackSingle Purchase sent');
+        } catch(e) {
+            console.error('❌ Method 1 failed:', e);
+        }
+        
+        // Method 2: Regular track
+        try {
+            fbq('track', 'Purchase', purchaseData);
+            console.log('✅ Method 2: track Purchase sent');
+        } catch(e) {
+            console.error('❌ Method 2 failed:', e);
+        }
+        
+        // Method 3: trackCustom as backup
+        try {
+            fbq('trackCustom', 'CompletedPurchase', purchaseData);
+            console.log('✅ Method 3: Custom event sent');
+        } catch(e) {
+            console.error('❌ Method 3 failed:', e);
+        }
+        
+        // Method 4: Direct pixel call (nuclear option)
+        try {
+            const img = new Image();
+            img.src = `https://www.facebook.com/tr?id=1307286391153633&ev=Purchase&cd[value]=${orderAmount}&cd[currency]=INR&cd[content_name]=Elvique&noscript=1`;
+            console.log('✅ Method 4: Direct pixel image sent');
+        } catch(e) {
+            console.error('❌ Method 4 failed:', e);
+        }
+        
+        console.log('🎯 All Purchase methods attempted!');
+        
+        // Wait 3 seconds before redirect to ensure events send
+        setTimeout(() => {
+            window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
+        }, 3000);
+    }
 
-function cancelPayment() {
-    document.getElementById('paymentConfirmOverlay').style.display = 'none';
-}
+    function cancelPayment() {
+        document.getElementById('paymentConfirmOverlay').style.display = 'none';
+    }
 </script>
+
 </body>
 </html>
