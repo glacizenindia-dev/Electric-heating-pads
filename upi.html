@@ -847,16 +847,23 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
     }
 
 function confirmPayment() {
-    console.log('🔥 Redirecting to hidden purchase page!');
+    console.log('🔥 Firing Purchase Event!');
     
-    // Redirect to HIDDEN page that fires Purchase
-    window.location.href = `hidden-purchase.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
+    // Fire CLEAN Purchase event with only required parameters
+    fbq('track', 'Purchase', {
+        value: parseFloat(orderAmount),
+        currency: 'INR'
+    });
+    
+    console.log('✅ Purchase event fired');
+    
+    // Direct redirect - NO waiting, NO processing page
+    window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
 }
 
 function cancelPayment() {
     document.getElementById('paymentConfirmOverlay').style.display = 'none';
 }
-
    
 </script>
 
