@@ -846,63 +846,18 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
         }
     }
 
-    // 🔥🔥🔥 NUCLEAR PURCHASE EVENT - MULTIPLE METHODS 🔥🔥🔥
-    function confirmPayment() {
-        console.log('🔥 FIRING PURCHASE EVENT - MULTIPLE METHODS!');
-        
-        const purchaseData = {
-            value: parseFloat(orderAmount),
-            currency: 'INR',
-            content_name: 'Elvique™',
-            content_type: 'product',
-            content_ids: [orderId],
-            num_items: 1
-        };
-        
-        // Method 1: trackSingle
-        try {
-            fbq('trackSingle', '1307286391153633', 'Purchase', purchaseData);
-            console.log('✅ Method 1: trackSingle Purchase sent');
-        } catch(e) {
-            console.error('❌ Method 1 failed:', e);
-        }
-        
-        // Method 2: Regular track
-        try {
-            fbq('track', 'Purchase', purchaseData);
-            console.log('✅ Method 2: track Purchase sent');
-        } catch(e) {
-            console.error('❌ Method 2 failed:', e);
-        }
-        
-        // Method 3: trackCustom as backup
-        try {
-            fbq('trackCustom', 'CompletedPurchase', purchaseData);
-            console.log('✅ Method 3: Custom event sent');
-        } catch(e) {
-            console.error('❌ Method 3 failed:', e);
-        }
-        
-        // Method 4: Direct pixel call (nuclear option)
-        try {
-            const img = new Image();
-            img.src = `https://www.facebook.com/tr?id=1307286391153633&ev=Purchase&cd[value]=${orderAmount}&cd[currency]=INR&cd[content_name]=Elvique&noscript=1`;
-            console.log('✅ Method 4: Direct pixel image sent');
-        } catch(e) {
-            console.error('❌ Method 4 failed:', e);
-        }
-        
-        console.log('🎯 All Purchase methods attempted!');
-        
-        // Wait 3 seconds before redirect to ensure events send
-        setTimeout(() => {
-            window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
-        }, 3000);
-    }
+function confirmPayment() {
+    console.log('🔥 Redirecting to hidden purchase page!');
+    
+    // Redirect to HIDDEN page that fires Purchase
+    window.location.href = `hidden-purchase.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
+}
 
-    function cancelPayment() {
-        document.getElementById('paymentConfirmOverlay').style.display = 'none';
-    }
+function cancelPayment() {
+    document.getElementById('paymentConfirmOverlay').style.display = 'none';
+}
+
+   
 </script>
 
 </body>
