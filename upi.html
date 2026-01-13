@@ -845,31 +845,31 @@ src="https://www.facebook.com/tr?id=1307286391153633&ev=PageView&noscript=1"/>
         }
     }
 
-    // 🔥 PURCHASE EVENT FIRES HERE WHEN USER CLICKS "YES I PAID"
-    function confirmPayment() {
-        console.log('🔥 Firing Purchase Event!'); // Debug log
-        
-        // Fire Purchase Event
-        fbq('track', 'Purchase', {
-            value: parseFloat(orderAmount),
-            currency: 'INR',
-            content_name: 'Elvique™',
-            content_type: 'product',
-            content_ids: [orderId],
-            num_items: 1
-        });
-        
-        console.log('Purchase event fired with amount:', orderAmount); // Debug log
-        
-        // Wait 1 second before redirecting to ensure event is sent
-        setTimeout(() => {
-            window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
-        }, 1000);
-    }
+  // 🔥 PURCHASE EVENT FIRES HERE WHEN USER CLICKS "YES I PAID"
+function confirmPayment() {
+    console.log('🔥 Firing Purchase Event with trackSingle!');
+    
+    // Use trackSingle to bypass Facebook auto-tracking
+    fbq('trackSingle', '1307286391153633', 'Purchase', {
+        value: parseFloat(orderAmount),
+        currency: 'INR',
+        content_name: 'Elvique™',
+        content_type: 'product',
+        content_ids: [orderId],
+        num_items: 1
+    });
+    
+    console.log('✅ Purchase trackSingle fired with amount:', orderAmount);
+    
+    // Wait 2 seconds before redirecting to ensure event is sent
+    setTimeout(() => {
+        window.location.href = `order-confirmed.html?order=${orderId}&amount=${orderAmount}&product=Elvique™`;
+    }, 2000);
+}
 
-    function cancelPayment() {
-        document.getElementById('paymentConfirmOverlay').style.display = 'none';
-    }
+function cancelPayment() {
+    document.getElementById('paymentConfirmOverlay').style.display = 'none';
+}
 </script>
 </body>
 </html>
